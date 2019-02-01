@@ -1,0 +1,51 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+
+    <!-- Users -->
+    <changeSet id="users1" author="k">
+        <createTable tableName="users" schemaName="socnetwork">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="secondName" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="birthDay" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="varchar(50)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="password" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pic" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="phoneNumber" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+
+    <changeSet author="k" id="users_ins1">
+        <insert catalogName="socnetwork" tableName="users">
+            <column name="id">1</column>
+            <column name="name">Konstantin</column>
+            <column name="secondName">Sakharov</column>
+            <column name="birthDay">1998-01-12</column>
+            <!--<column name="password">qwerty</column>-->
+            <column name="password">$2a$12$lqFSTamk1jzI9ogJDhvBoO9KdhE9ptcgWGdcXCz20lByBL2G8zzki</column>
+            <column name="email">caxarov-kostya@mail.ru</column>
+            <column name="pic"></column>
+            <column name="phoneNumber">8-951-859-07-91</column>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
