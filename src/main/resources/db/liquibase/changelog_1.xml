@@ -12,10 +12,10 @@
             <column name="name" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="secondName" type="varchar(255)">
+            <column name="second_name" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="birthDay" type="date">
+            <column name="birth_date" type="date">
                 <constraints nullable="false"/>
             </column>
             <column name="email" type="varchar(50)">
@@ -27,7 +27,7 @@
             <column name="pic" type="varchar(255)">
                 <constraints nullable="true"/>
             </column>
-            <column name="phoneNumber" type="varchar(255)">
+            <column name="phone_number" type="varchar(255)">
                 <constraints nullable="true"/>
             </column>
         </createTable>
@@ -38,13 +38,13 @@
         <insert catalogName="socnetwork" tableName="users">
             <column name="id">1</column>
             <column name="name">Konstantin</column>
-            <column name="secondName">Sakharov</column>
-            <column name="birthDay">1998-01-12</column>
+            <column name="second_name">Sakharov</column>
+            <column name="birth_date">1998-01-12</column>
             <!--<column name="password">qwerty</column>-->
             <column name="password">$2a$12$lqFSTamk1jzI9ogJDhvBoO9KdhE9ptcgWGdcXCz20lByBL2G8zzki</column>
             <column name="email">caxarov-kostya@mail.ru</column>
             <column name="pic"></column>
-            <column name="phoneNumber">8-951-859-07-91</column>
+            <column name="phone_number">8-951-859-07-91</column>
         </insert>
     </changeSet>
 

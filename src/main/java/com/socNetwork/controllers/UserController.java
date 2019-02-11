@@ -3,14 +3,14 @@ package com.socNetwork.controllers;
 
 import com.socNetwork.entities.UserEntity;
 import com.socNetwork.service.UserService;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
-@Controller("/api/users")
+@RequestMapping("/api/users")
 public class UserController {
 
     private UserService userService;
