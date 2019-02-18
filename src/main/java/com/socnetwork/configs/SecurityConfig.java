@@ -1,6 +1,8 @@
-package com.socNetwork.configs;
+package com.socnetwork.configs;
 
 
+import com.zaxxer.hikari.HikariDataSource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -14,12 +16,19 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    @Autowired
+    private HikariDataSource dataSource;
+
     @Override
     protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("admin").password(encoder().encode("adminPass")).roles("ADMIN")
-                .and()
-                .withUser("user").password(encoder().encode("userPass")).roles("USER");
+        auth.jdbcAuthentication().dataSource(dataSource)
+                .authoritiesByUsernameQuery("select username, password, enabled from users where username=?")
+                .authoritiesByUsernameQuery("select username, role from users where username=?");
+    }
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        super.configure(http);
     }
 
     @Bean
@@ -27,21 +36,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http
-                .csrf().disable()
-                .exceptionHandling()
-                .authenticationEntryPoint(restAuthenticationEntryPoint)
-                .and()
-                .authorizeRequests()
-                .antMatchers("/api/foos").authenticated()
-                .antMatchers("/api/admin/**").hasRole("ADMIN")
-                .and()
-                .formLogin()
-                .successHandler(mySuccessHandler)
-                .failureHandler(myFailureHandler)
-                .and()
-                .logout();
-    }
 }

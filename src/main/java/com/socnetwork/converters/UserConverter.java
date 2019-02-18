@@ -1,7 +1,7 @@
-package com.socNetwork.converters;
+package com.socnetwork.converters;
 
-import com.socNetwork.domain.UserDto;
-import com.socNetwork.entities.UserEntity;
+import com.socnetwork.domain.UserDto;
+import com.socnetwork.entities.UserEntity;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")

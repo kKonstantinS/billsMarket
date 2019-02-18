@@ -1,9 +1,9 @@
-package com.socNetwork.service.serviceImpl;
+package com.socnetwork.service.impl;
 
 
-import com.socNetwork.entities.UserEntity;
-import com.socNetwork.repositories.UserRepository;
-import com.socNetwork.service.UserService;
+import com.socnetwork.entities.UserEntity;
+import com.socnetwork.repositories.UserRepository;
+import com.socnetwork.service.UserService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

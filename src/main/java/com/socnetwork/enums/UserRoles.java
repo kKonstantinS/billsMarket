@@ -1,8 +1,8 @@
-package com.socNetwork.enums;
+package com.socnetwork.enums;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-enum UserRoles {
+public enum UserRoles {
 
     @JsonProperty("admin")
     ADMIN,
