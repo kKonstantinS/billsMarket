@@ -17,13 +17,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    @Autowired
     private HikariDataSource dataSource;
+    @Autowired
     private UserDetailsService userDetailsService;
 
-    public SecurityConfig(HikariDataSource dataSource, UserDetailsService userDetailsService) {
-        this.dataSource = dataSource;
-        this.userDetailsService = userDetailsService;
-    }
 
     @Override
     protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
@@ -34,10 +32,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailsService).passwordEncoder(encoder());
     }
 
-    @Override
+/*    @Override
     protected void configure(HttpSecurity http) throws Exception {
         super.configure(http);
-    }
+    }*/
 
     @Bean
     public PasswordEncoder encoder() {

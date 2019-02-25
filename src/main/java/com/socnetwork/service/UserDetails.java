@@ -5,5 +5,7 @@ import com.socnetwork.exceptions.UserNotFoundException;
 
 public interface UserDetails {
 
-    public UserEntity loadUserByUsername(String username) throws UserNotFoundException;
+    UserEntity loadUserByUsername(String username) throws UserNotFoundException;
+
+    UserEntity saveNewUser(UserEntity userEntity);
 }
