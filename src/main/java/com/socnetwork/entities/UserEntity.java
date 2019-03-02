@@ -2,10 +2,6 @@ package com.socnetwork.entities;
 
 import com.socnetwork.enums.UserRoles;
 import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.hibernate.annotations.GeneratorType;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,7 +13,6 @@ import javax.persistence.Id;
 import java.util.Date;
 
 @Data
-@NoArgsConstructor
 @Entity(name = "users")
 public class UserEntity {
 

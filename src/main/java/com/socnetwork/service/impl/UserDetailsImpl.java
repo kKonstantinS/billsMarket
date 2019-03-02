@@ -1,7 +1,7 @@
 package com.socnetwork.service.impl;
 
 import com.socnetwork.entities.UserEntity;
-import com.socnetwork.exceptions.UserAlreadyExists;
+import com.socnetwork.exceptions.UserAlreadyExistsException;
 import com.socnetwork.exceptions.UserNotFoundException;
 import com.socnetwork.repositories.UserRepository;
 import com.socnetwork.service.UserDetails;
@@ -32,6 +32,6 @@ public class UserDetailsImpl implements UserDetails {
         if (userRepository.findByUsername(userEntity.getUsername()).isPresent()) {
             return userRepository.save(userEntity);
         }
-        throw new UserAlreadyExists("User with username " + userEntity.getUsername() + " already exists");
+        throw new UserAlreadyExistsException("User with username " + userEntity.getUsername() + " already exists");
     }
 }
