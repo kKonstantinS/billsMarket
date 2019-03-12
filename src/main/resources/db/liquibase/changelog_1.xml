@@ -27,7 +27,7 @@
             <column name="password" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="pic" type="varchar(255)">
+            <column name="picture" type="varchar(255)">
                 <constraints nullable="true"/>
             </column>
             <column name="phone_number" type="varchar(255)">
@@ -53,7 +53,7 @@
             <!--<column name="password">admin</column>-->
             <column name="password">$2a$10$7H1l75XYRcMjz4usYzp90Oic9m4QMbQPPCsrL9Hp.pLyO87Xfgk4m</column>
             <column name="email">caxarov-kostya@mail.ru</column>
-            <column name="pic"></column>
+            <column name="picture"></column>
             <column name="phone_number">8-951-859-07-91</column>
             <column name="role">ADMIN</column>
             <column name="enabled" valueBoolean="true"></column>

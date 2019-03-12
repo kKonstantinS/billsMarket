@@ -2,6 +2,8 @@ package com.socnetwork.entities;
 
 import com.socnetwork.enums.UserRoles;
 import lombok.Data;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,11 +12,12 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Collection;
 import java.util.Date;
 
 @Data
 @Entity(name = "users")
-public class UserEntity {
+public class UserEntity implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,7 +29,7 @@ public class UserEntity {
     private String password;
     @Column(name = "birth_date")
     private Date birthDate;
-    private String pic;
+    private String picture;
     @Column(name = "phone_number")
     private String phoneNumber;
     private String email;
@@ -34,4 +37,23 @@ public class UserEntity {
     private UserRoles role;
     private boolean enabled;
 
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
 }
