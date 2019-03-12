@@ -33,7 +33,7 @@ public class TokenAuthenticationFilter extends AbstractAuthenticationProcessingF
                 .orElse(httpServletRequest.getParameter("t"));
 
         final String token = ofNullable(param)
-                .map(value -> removeStart(value, BEARER))
+                .map((String value)-> value.replaceFirst(value, BEARER))//changed original removeStart to replaceFirst
                 .map(String::trim)
                 .orElseThrow(() -> new BadCredentialsException("Missing Authentication Token"));
 
