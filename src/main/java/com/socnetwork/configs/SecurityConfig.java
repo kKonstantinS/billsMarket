@@ -18,8 +18,8 @@ import org.springframework.security.web.authentication.SimpleUrlAuthenticationFa
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private HikariDataSource dataSource;
+    /*@Autowired
+    private HikariDataSource dataSource;*/
     @Autowired
     private UserDetailsService userDetailsService;
     @Autowired
@@ -31,9 +31,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
-        auth.jdbcAuthentication().dataSource(dataSource)
+        /*auth.jdbcAuthentication().dataSource(dataSource)
                 .authoritiesByUsernameQuery("select username, password, enabled from users where username=?")
-                .authoritiesByUsernameQuery("select username, role from users where username=?");
+                .authoritiesByUsernameQuery("select username, role from users where username=?");*/
 
         auth.userDetailsService(userDetailsService).passwordEncoder(encoder());
     }
@@ -46,7 +46,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authenticationEntryPoint(restAuthenticationEntryPoint)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/api/users/all")
+                .antMatchers("/api/**")
                 .authenticated()
                 .and()
                 .formLogin()
