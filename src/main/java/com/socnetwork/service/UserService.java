@@ -8,4 +8,6 @@ import java.util.List;
 public interface UserService {
 
     List<UserEntity> getAllUsers();
+
+    UserEntity saveNewUser(UserEntity userEntity);
 }
