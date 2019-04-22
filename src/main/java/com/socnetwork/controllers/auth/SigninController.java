@@ -1,6 +1,6 @@
-package com.socnetwork.controllers;
+package com.socnetwork.controllers.auth;
 
-import com.socnetwork.controllers.domain.AuthenticationRequest;
+import com.socnetwork.controllers.auth.domain.AuthenticationRequest;
 import com.socnetwork.repositories.UserRepository;
 import com.socnetwork.security.JwtTokenProvider;
 import lombok.AccessLevel;
@@ -14,7 +14,6 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 

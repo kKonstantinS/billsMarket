@@ -1,4 +1,4 @@
-package com.socnetwork.controllers.domain;
+package com.socnetwork.controllers.auth.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
