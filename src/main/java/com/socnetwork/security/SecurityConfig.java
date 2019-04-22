@@ -1,9 +1,5 @@
 package com.socnetwork.security;
 
-
-import com.socnetwork.security.JwtConfigurer;
-import com.socnetwork.security.JwtTokenProvider;
-import com.zaxxer.hikari.HikariDataSource;
 import lombok.experimental.FieldDefaults;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -52,5 +48,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .apply(new JwtConfigurer(jwtTokenProvider));
     }
 
-
+    @Bean
+    public PasswordEncoder BCryptPasswordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 }
