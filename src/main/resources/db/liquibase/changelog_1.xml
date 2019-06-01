@@ -58,6 +58,21 @@
             <column name="role">ADMIN</column>
             <column name="enabled" valueBoolean="true"></column>
         </insert>
+
+        <insert catalogName="socnetwork" tableName="users">
+            <column name="id">2</column>
+            <column name="username">admin</column>
+            <column name="name">Admin</column>
+            <column name="second_name">Admin</column>
+            <column name="birth_date">1900-01-01</column>
+            <!--<column name="password">admin</column>-->
+            <column name="password">$2y$12$B7CWb1NP116cEb7ej/4a4ulAdLEgmYUJV8Ululdx0Lac7svta9Riq</column>
+            <column name="email">caxarov-kostya@gmail.ru</column>
+            <column name="picture"></column>
+            <column name="phone_number">8-951-859-07-91</column>
+            <column name="role">ADMIN</column>
+            <column name="enabled" valueBoolean="true"></column>
+        </insert>
     </changeSet>
 
 </databaseChangeLog>
