@@ -2,7 +2,6 @@ package com.socnetwork.controllers.auth;
 
 import com.socnetwork.controllers.auth.domain.AuthenticationRequest;
 import com.socnetwork.repositories.UserRepository;
-import com.socnetwork.security.JwtTokenProvider;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import org.springframework.beans.factory.annotation.Autowired;
