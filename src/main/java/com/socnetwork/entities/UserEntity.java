@@ -8,8 +8,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
 
 @Data
 @Entity(name = "users")

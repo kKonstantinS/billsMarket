@@ -31,9 +31,6 @@ public class SigninController {
     @Autowired
     JwtTokenProvider tokenProvider;
 
-    @Autowired
-    UserRepository users;
-
     @PostMapping("/signin")
     public ResponseEntity signin(@RequestBody AuthenticationRequest data) {
 
