@@ -17,6 +17,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 import static org.springframework.http.ResponseEntity.ok;
@@ -62,5 +63,10 @@ public class SigninController {
             log.warn("Username " + userEntity.getUsername() + "already exists");
             throw new UserAlreadyExistsException("User with username " + userEntity.getUsername() + "already exists");
         }
+    }
+
+    @GetMapping
+    public List<UserEntity> getUsers() {
+        return userService.asd();
     }
 }

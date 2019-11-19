@@ -6,11 +6,14 @@ import com.socnetwork.exceptions.UserAlreadyExistsException;
 import com.socnetwork.exceptions.UserNotFoundException;
 import com.socnetwork.repositories.UserRepository;
 import com.socnetwork.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
+@Slf4j
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -40,6 +43,18 @@ public class UserServiceImpl implements UserService {
             throw new UserNotFoundException("User with given username - "+username+"not found.");
         }
         return user;
+    }
+
+    @Transactional
+    public List<UserEntity> asd() {
+        log.trace("First invoke");
+        return dsa();
+    }
+
+    @Transactional
+    public List<UserEntity> dsa() {
+        log.trace("Second invoke");
+        return userRepository.findAll();
     }
 
 }
