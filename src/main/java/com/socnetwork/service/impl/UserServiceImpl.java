@@ -44,17 +44,4 @@ public class UserServiceImpl implements UserService {
         }
         return user;
     }
-
-    @Transactional
-    public List<UserEntity> asd() {
-        log.trace("First invoke");
-        return dsa();
-    }
-
-    @Transactional
-    public List<UserEntity> dsa() {
-        log.trace("Second invoke");
-        return userRepository.findAll();
-    }
-
 }

@@ -64,9 +64,4 @@ public class SigninController {
             throw new UserAlreadyExistsException("User with username " + userEntity.getUsername() + "already exists");
         }
     }
-
-    @GetMapping
-    public List<UserEntity> getUsers() {
-        return userService.asd();
-    }
 }

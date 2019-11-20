@@ -14,6 +14,4 @@ public interface UserService {
     UserEntity saveNewUser(UserEntity userEntity);
 
     Optional<UserEntity> getUserByUsername(String username);
-
-    List<UserEntity> asd();
 }

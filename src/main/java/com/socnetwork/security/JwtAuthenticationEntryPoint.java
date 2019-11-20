@@ -1,6 +1,7 @@
 package com.socnetwork.security;
 
 
+import lombok.extern.log4j.Log4j2;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
@@ -15,19 +16,11 @@ import java.io.IOException;
 @Component
 public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
-    private JwtTokenProvider provider;
-
     @Override
     public void commence(HttpServletRequest httpServletRequest,
                          HttpServletResponse httpServletResponse,
                          AuthenticationException e) throws IOException, ServletException {
-        if (httpServletRequest.isRequestedSessionIdValid()) {
-
-        }
-/*        if (httpServletRequest.containsHeader("token")
-        && provider.validateToken(httpServletRequest.getHeader("token"))) {
-            httpServletResponse.sendError(HttpServletResponse.SC_FOUND, "Invalid token(status code - 302)");
-        }*/
+        log.debug("entry point");
         log.error("Responding with unauthorized error. Message - {}" + " status code 401", e.getMessage());
         httpServletResponse.sendError(HttpServletResponse.SC_UNAUTHORIZED, e.getMessage());
     }
