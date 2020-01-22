@@ -5,7 +5,7 @@
 
     <!-- Users -->
     <changeSet id="users1" author="k">
-        <createTable tableName="users" schemaName="socnetwork">
+        <createTable tableName="users" schemaName="bm">
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
@@ -44,7 +44,7 @@
 
 
     <changeSet author="k" id="users_ins1">
-        <insert catalogName="socnetwork" tableName="users">
+        <insert catalogName="bm" tableName="users">
             <column name="id">1</column>
             <column name="username">konstantin</column>
             <column name="name">Konstantin</column>
@@ -59,7 +59,7 @@
             <column name="enabled" valueBoolean="true"></column>
         </insert>
 
-        <insert catalogName="socnetwork" tableName="users">
+        <insert catalogName="bm" tableName="users">
             <column name="id">2</column>
             <column name="username">admin</column>
             <column name="name">Admin</column>

@@ -44,4 +44,10 @@ public class UserServiceImpl implements UserService {
         }
         return user;
     }
+
+    @Override
+    public void modifyUser(UserEntity userEntity) {
+        if (userEntity == null || userEntity.getId() == null) throw new RuntimeException("User or id equals null");
+        userRepository.save(userEntity);
+    }
 }

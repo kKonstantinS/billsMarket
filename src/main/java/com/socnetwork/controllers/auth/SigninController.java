@@ -14,11 +14,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.sql.Date;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -55,7 +60,8 @@ public class SigninController {
         String jwt = tokenProvider.generateToken(authentication);
         Cookie cookie = new Cookie("token", jwt);
         httpServletResponse.addCookie(cookie);
-        return ok("Token has been set.");
+
+        return ok(SecurityContextHolder.getContext().getAuthentication().getDetails());
     }
 
     @PostMapping(path = "/register")
@@ -67,5 +73,20 @@ public class SigninController {
             log.warn("Username " + userEntity.getUsername() + "already exists");
             throw new UserAlreadyExistsException("User with username " + userEntity.getUsername() + "already exists");
         }
+    }
+
+    @GetMapping(path = "/clear-session")
+    public void invalidateSession(HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        SecurityContextHolder.clearContext();
+        if(session != null) {
+            session.invalidate();
+        }
+    }
+
+    @GetMapping("/is-authenticated")
+    public boolean isAuthenticated(HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        return SecurityContextHolder.getContext().getAuthentication().isAuthenticated();
     }
 }

@@ -10,10 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -24,7 +21,6 @@ import static org.springframework.http.ResponseEntity.ok;
 
 @RestController
 @RequestMapping("/api/users")
-@CrossOrigin
 @Slf4j
 public class UserController {
 
@@ -46,9 +42,15 @@ public class UserController {
         model.put("username", userDetails.getUsername());
         model.put("roles", userDetails.getAuthorities()
                 .stream()
-                .map(a -> (a).getAuthority())
+                .map(GrantedAuthority::getAuthority)
                 .collect(toList())
         );
         return ok(model);
+    }
+
+    @PostMapping("/update")
+    public void modifyUser(@RequestBody UserEntity userEntity) {
+        if (userEntity == null || userEntity.getId() == null) throw new RuntimeException("User or id equals null");
+        userService.modifyUser(userEntity);
     }
 }
