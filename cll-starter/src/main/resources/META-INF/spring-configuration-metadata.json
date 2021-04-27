@@ -1,0 +1,34 @@
+{
+  "properties": [
+    {
+      "name": "cll.settings.logLevel",
+      "type": "java.lang.String",
+      "sourceType": "com.cllstarter.configuration.CLLAutoConfiguration"
+    },
+    {
+      "name": "cll.settings.pattern",
+      "type": "java.lang.String",
+      "sourceType": "com.cllstarter.configuration.CLLAutoConfiguration"
+    },
+    {
+      "name": "cll.settings.databaseUsername",
+      "type": "java.lang.String",
+      "sourceType": "com.cllstarter.configuration.CLLAutoConfiguration"
+    },
+    {
+      "name": "cll.settings.databaseUserPassword",
+      "type": "java.lang.String",
+      "sourceType": "com.cllstarter.configuration.CLLAutoConfiguration"
+    },
+    {
+      "name": "cll.settings.datasourceUrl",
+      "type": "java.lang.String",
+      "sourceType": "com.cllstarter.configuration.CLLAutoConfiguration"
+    },
+    {
+      "name": "cll.settings.databaseDriver",
+      "type": "com.cllstarter.enums.DatabaseDrivers",
+      "sourceType": "com.cllstarter.configuration.CLLAutoConfiguration"
+    }
+  ]
+}

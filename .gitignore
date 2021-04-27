@@ -1,4 +1,5 @@
-/target/
+/billsMarket/target/
+/cll-starter/target/
 !.mvn/wrapper/maven-wrapper.jar
 
 ### STS ###
@@ -15,6 +16,7 @@
 *.iws
 *.iml
 *.ipr
+*.jar
 
 ### NetBeans ###
 /nbproject/private/
@@ -23,3 +25,5 @@
 /nbdist/
 /.nb-gradle/
 /build/
+/cll-starter/logs/
+/billsMarket/logs/
